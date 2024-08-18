@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'gaji',
+	'hostname' => 'srv1410.hstgr.io',
+	'username' => 'u740202808_Root_Attiya',
+	'password' => '!@34ATTiya',
+	'database' => 'u740202808_Attiya_Website',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
