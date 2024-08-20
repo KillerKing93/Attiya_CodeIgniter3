@@ -16,45 +16,35 @@
                             <th>Uang Makan</th>
                             <th>Potongan</th>
                             <th>Total Gaji</th>
-                            <th>Aksi</th>
                           </tr>
 
-                          <?php 
-                        $alpha = 0; // Default value if no potongan is found
-                        if (!empty($potongan)) {
-                            foreach ($potongan as $p) {
-                                if (isset($p->jml_potongan)) {
-                                    $alpha = $p->jml_potongan;
-                                }
-                            }
-                        }
-                        ?>
+                          <?php $no=0; ?>
+                            <?php foreach($penggajian as $g) { ?>
+                            <?php 
+                            $alpha_value = isset($g['alpha']) ? (int)$g['alpha'] : 0;
+                            $potongan_per_alpha = isset($g['potongan_per_alpha']) ? (float)$g['potongan_per_alpha'] : 0.0;
+                            $gaji_pokok = isset($g['gaji_pokok']) ? (float)$g['gaji_pokok'] : 0.0;
+                            $transport = isset($g['transport']) ? (float)$g['transport'] : 0.0;
+                            $uang_makan = isset($g['uang_makan']) ? (float)$g['uang_makan'] : 0.0;
 
-                        <?php $no = 0; ?>
-                        <?php if (!empty($penggajian)) : ?>
-                            <?php foreach ($penggajian as $g) : ?>
-                                <?php 
-                                $alpha_value = isset($g['alpha']) ? (int)$g['alpha'] : 0;
-                                $potongan_value = isset($alpha) ? (int)$alpha : 0;
-                                $potongan = $alpha_value * $potongan_value;
-                                ?>
-                                <tr>
-                                    <td><?php echo ++$no; ?></td>
-                                    <td><?php echo $g['nip']; ?></td>
-                                    <td><?php echo $g['nama_karyawan']; ?></td>
-                                    <td><?php echo $g['nama_jabatan']; ?></td>
-                                    <td><?php echo $g['gaji_pokok']; ?></td>
-                                    <td><?php echo $g['transport']; ?></td>
-                                    <td><?php echo $g['uang_makan']; ?></td>
-                                    <td><?php echo number_format($potongan, 0, ',', '.'); ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php else : ?>
-                            
+                            // Menghitung potongan
+                            $potongan = $alpha_value * $potongan_per_alpha;
+
+                            // Menghitung total gaji
+                            $total_gaji = ($gaji_pokok + $transport + $uang_makan) - $potongan;
+                            ?>
                             <tr>
-                                <td colspan="9">Data penggajian tidak tersedia.</td>
+                                <td><?php echo ++$no; ?></td>
+                                <td><?php echo $g['nip']; ?></td>
+                                <td><?php echo $g['nama_karyawan']; ?></td>
+                                <td><?php echo $g['nama_jabatan']; ?></td>
+                                <td>Rp.<?php echo number_format($gaji_pokok, 0, ',', '.'); ?></td>
+                                <td>Rp.<?php echo number_format($transport, 0, ',', '.'); ?></td>
+                                <td>Rp.<?php echo number_format($uang_makan, 0, ',', '.'); ?></td>
+                                <td>Rp.<?php echo number_format($potongan, 0, ',', '.'); ?></td>
+                                <td>Rp.<?php echo number_format($total_gaji, 0, ',', '.'); ?></td>
                             </tr>
-                        <?php endif; ?>
+                        <?php } ?>
                     </table>
             </div>
         </div>

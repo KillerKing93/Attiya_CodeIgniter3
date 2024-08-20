@@ -56,14 +56,15 @@ class Model extends CI_Model {
 
     // Penggajian
     function penggajian() {
-        $data = $this->db->query(" SELECT karyawan.nip, karyawan.nama_karyawan, jabatan.nama_jabatan, jabatan.gaji_pokok, jabatan.transport, jabatan.uang_makan, absen.alpha
+        $data = $this->db->query(" SELECT karyawan.nip, karyawan.nama_karyawan, jabatan.nama_jabatan, jabatan.gaji_pokok, jabatan.transport, jabatan.uang_makan, absen.alpha, potongan_gaji.jml_potongan AS potongan_per_alpha
             FROM karyawan 
             INNER JOIN absen ON absen.nip = karyawan.nip
             INNER JOIN jabatan ON jabatan.nama_jabatan = karyawan.jabatan
+            LEFT JOIN potongan_gaji ON potongan_gaji.potongan = 'Alpha' -- Assuming 'Alpha' refers to absence
             ORDER BY karyawan.nama_karyawan ASC");
-        return $data->result_array(); // Mengembalikan hasil sebagai array
+        return $data->result_array();
     }
-
+    
     // Potongan Gaji
     function potongan_gaji() {
         $data = $this->db->get('potongan_gaji');

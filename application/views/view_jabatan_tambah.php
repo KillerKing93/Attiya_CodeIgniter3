@@ -10,17 +10,17 @@
                         <br>
 
                         <label>Gaji Pokok</label>
-                        <input type="text" class="form-control" name="gaji_pokok">
+                        <input type="number" class="form-control" name="gaji_pokok">
 
                         <br>
 
                         <label>Transport</label>
-                        <input type="text" class="form-control" name="transport">
+                        <input type="number" class="form-control" name="transport">
 
                         <br>
 
                         <label>Uang Makan</label>
-                        <input type="text" class="form-control"name="uang_makan">
+                        <input type="number" class="form-control"name="uang_makan">
 
                         <br><br>
                     <button type="submit" class="btn btn-primary">Submit</button>
