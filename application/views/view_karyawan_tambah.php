@@ -17,7 +17,6 @@
                     <label>Jenis Kelamin</label><br>
                     <input type="radio" class="form-check-input" name="jenis_kelamin" id="LakiLaki" value="L" checked="">
                     <label for="LakiLaki">Laki-laki</label>
-
                     <input type="radio" class="form-check-input" name="jenis_kelamin" id="Perempuan" value="P">
                     <label for="Perempuan">Perempuan</label>
 
@@ -25,12 +24,7 @@
                     <br><br>
 
                     <label>Jabatan</label>
-                    <select name="id_jabatan" class="form-control">
-                        <option value="">--Pilih Jabatan--</option>
-                        <?php foreach ($jabatan as $jbt): ?>
-                            <option value="<?= $jbt['id_jabatan'] ?>"><?= $jbt['nama_jabatan'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <input class="form-control" name="jabatan" type="text">
 
                     <br>
 

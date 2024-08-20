@@ -15,7 +15,6 @@ class Karyawan extends CI_Controller {
     function tambah(){
         $data = array(
             'title' => 'Tambah Karyawan',
-            'jabatan' => $this->model->jabatan(),
             'isi' => 'view_karyawan_tambah',
         );
         $this->load->view('layout', $data);

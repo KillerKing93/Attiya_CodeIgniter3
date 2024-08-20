@@ -15,11 +15,6 @@ class Model extends CI_Model {
         return $data->result_array();
     }
 
-    function update_karyawan($id_karyawan, $data) {
-        $this->db->where('id_karyawan', $id_karyawan);
-        return $this->db->update('karyawan', $data);
-    }
-
     // Jabatan
     function jabatan() {
         $data = $this->db->get('jabatan');

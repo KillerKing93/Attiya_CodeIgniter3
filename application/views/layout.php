@@ -113,7 +113,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                     <i class="fa fa-credit-card menu-icon"></i>
-                    <span class="menu-title">Transaksi</span>
+                    <span class="menu-title">Penggajian</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="form-elements">
