@@ -1,0 +1,175 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Waktu pembuatan: 19 Agu 2024 pada 07.38
+-- Versi server: 8.0.30
+-- Versi PHP: 7.4.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `gaji`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `absen`
+--
+
+CREATE TABLE `absen` (
+  `id_absen` int NOT NULL,
+  `bulan` varchar(20) NOT NULL,
+  `nip` varchar(50) NOT NULL,
+  `nama_karyawan` varchar(100) NOT NULL,
+  `jenis_kelamin` enum('L','P') NOT NULL,
+  `nama_jabatan` varchar(100) NOT NULL,
+  `hadir` int NOT NULL,
+  `sakit` int NOT NULL,
+  `alpha` int NOT NULL
+);
+
+--
+-- Dumping data untuk tabel `absen`
+--
+
+INSERT INTO `absen` (`id_absen`, `bulan`, `nip`, `nama_karyawan`, `jenis_kelamin`, `nama_jabatan`, `hadir`, `sakit`, `alpha`) VALUES
+(1, 'Agustus 2024', 'G1A022002', 'Dianti Fadli', 'P', 'Admin', 20, 11, 2),
+(2, 'Agustus 2024', 'G1A022001', 'Attiya Dianti', 'L', 'Manajer', 34, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jabatan`
+--
+
+CREATE TABLE `jabatan` (
+  `id_jabatan` int NOT NULL,
+  `nama_jabatan` varchar(100) NOT NULL,
+  `gaji_pokok` varchar(50) NOT NULL,
+  `transport` varchar(50) NOT NULL,
+  `uang_makan` varchar(50) NOT NULL
+);
+
+--
+-- Dumping data untuk tabel `jabatan`
+--
+
+INSERT INTO `jabatan` (`id_jabatan`, `nama_jabatan`, `gaji_pokok`, `transport`, `uang_makan`) VALUES
+(1, 'Manajer', '15.000.000', '1.000.000', '2.000.000'),
+(2, 'Staff Marketing', '5.000.000', '500.000', '1.000.000'),
+(3, 'Staff ', '5.000.000', '500.000', '1.000.000');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `karyawan`
+--
+
+CREATE TABLE `karyawan` (
+  `id_karyawan` int NOT NULL,
+  `nip` varchar(50) NOT NULL,
+  `nama_karyawan` varchar(100) NOT NULL,
+  `jenis_kelamin` enum('L','P') NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `tanggal_masuk` date NOT NULL
+);
+
+--
+-- Dumping data untuk tabel `karyawan`
+--
+
+INSERT INTO `karyawan` (`id_karyawan`, `nip`, `nama_karyawan`, `jenis_kelamin`, `jabatan`, `tanggal_masuk`) VALUES
+(1, 'G1A022001', 'Attiya Dianti', 'L', 'Manajer', '2024-08-01'),
+(2, 'G1A022002', 'Dianti Fadli', 'P', 'Admin', '2024-08-01');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `potongan_gaji`
+--
+
+CREATE TABLE `potongan_gaji` (
+  `id` int NOT NULL,
+  `potongan` varchar(120) NOT NULL,
+  `jml_potongan` int NOT NULL
+);
+
+--
+-- Dumping data untuk tabel `potongan_gaji`
+--
+
+INSERT INTO `potongan_gaji` (`id`, `potongan`, `jml_potongan`) VALUES
+(1, 'Alpha', 100000),
+(2, 'Izin', 50000);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `absen`
+--
+ALTER TABLE `absen`
+  ADD PRIMARY KEY (`id_absen`);
+
+--
+-- Indeks untuk tabel `jabatan`
+--
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`id_jabatan`);
+
+--
+-- Indeks untuk tabel `karyawan`
+--
+ALTER TABLE `karyawan`
+  ADD PRIMARY u740202808_Attiya_Websiteu740202808_Attiya_WebsiteKEY (`id_karyawan`);
+
+--
+-- Indeks untuk tabel `potongan_gaji`
+--
+ALTER TABLE `potongan_gaji`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `absen`
+--
+ALTER TABLE `absen`
+  MODIFY `id_absen` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `jabatan`
+--
+ALTER TABLE `jabatan`
+  MODIFY `id_jabatan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `karyawan`
+--
+ALTER TABLE `karyawan`
+  MODIFY `id_karyawan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `potongan_gaji`
+--
+ALTER TABLE `potongan_gaji`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

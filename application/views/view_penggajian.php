@@ -3,9 +3,7 @@
         <div class="card">
             <div class="card-body">
                 <p class="card-title mb-0">Data Gaji Karyawan</p><br>
-                <div class="table-responsive">
-                <a href="<?php echo base_url('index.php/pengganian/tambah') ?>" class="btn btn-primary btn-icon-text ajax-link">
-                <i class="mdi mdi-plus-circle btn-icon-prepend"></i> Tambah Data Gaji Karyawan</a><br><br>
+               
                 <div class="table-responsive">
                     <table class="table table-striped table-borderless">
                         <tr>
@@ -20,22 +18,44 @@
                             <th>Total Gaji</th>
                             <th>Aksi</th>
                           </tr>
-                    </table>
-                    <?php $no=0;
-                        foreach($penggajian as $g){ ?>
-                        <tr>
-                            <td><?php echo ++$no?></td>
-                            <td><?php echo $g['nip']?></td>
-                            <td><?php echo $g['nama_karyawan']?></td>
-                            <td><?php echo $g['nama_jabatan']?></td>
-                            <td><?php echo $g['gaji_pokok']?></td>
-                            <td><?php echo $g['transport']?></td>
-                            <td><?php echo $g['uang_makan']?></td>
-                            <td><?php echo $g['nip']?></td>
+
+                          <?php 
+                        $alpha = 0; // Default value if no potongan is found
+                        if (!empty($potongan)) {
+                            foreach ($potongan as $p) {
+                                if (isset($p->jml_potongan)) {
+                                    $alpha = $p->jml_potongan;
+                                }
+                            }
+                        }
+                        ?>
+
+                        <?php $no = 0; ?>
+                        <?php if (!empty($penggajian)) : ?>
+                            <?php foreach ($penggajian as $g) : ?>
+                                <?php 
+                                $alpha_value = isset($g['alpha']) ? (int)$g['alpha'] : 0;
+                                $potongan_value = isset($alpha) ? (int)$alpha : 0;
+                                $potongan = $alpha_value * $potongan_value;
+                                ?>
+                                <tr>
+                                    <td><?php echo ++$no; ?></td>
+                                    <td><?php echo $g['nip']; ?></td>
+                                    <td><?php echo $g['nama_karyawan']; ?></td>
+                                    <td><?php echo $g['nama_jabatan']; ?></td>
+                                    <td><?php echo $g['gaji_pokok']; ?></td>
+                                    <td><?php echo $g['transport']; ?></td>
+                                    <td><?php echo $g['uang_makan']; ?></td>
+                                    <td><?php echo number_format($potongan, 0, ',', '.'); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else : ?>
                             
-                        </tr>
-                    <?php } ?>
-                </div>
+                            <tr>
+                                <td colspan="9">Data penggajian tidak tersedia.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </table>
             </div>
         </div>
     </div>

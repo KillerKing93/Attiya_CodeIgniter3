@@ -124,19 +124,6 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                    <i class="fa fa-file-text-o menu-icon"></i>
-                    <span class="menu-title">Laporan</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="charts">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" href="laporan">Laporan Gaji</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="slip_gaji">Slip Gaji</a></li>
-                    </ul>
-                </div>
-            </li>
         </ul>
       </nav>
       <div id="content-wrapper" class="content-wrapper pb-0" style="min-height: calc(100vh - 70px);">

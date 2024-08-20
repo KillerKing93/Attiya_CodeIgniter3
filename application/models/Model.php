@@ -56,11 +56,12 @@ class Model extends CI_Model {
 
     // Penggajian
     function penggajian() {
-        $data = $this->db->query("SELECT karyawan.nip, karyawan.nama_karyawan, jabatan.nama_jabatan, jabatan.gaji_pokok, jabatan.transport, jabatan.uang_makan, absen.alpha From karyawan inner join absen on absen.nip=karyawan.nip
-        inner join jabatan on jabatan.nama_jabatan=karyawan.jabatan
-        where bulan
-        order by karyawan.nama_karyawan ASC");
-        return $data->result_array();
+        $data = $this->db->query(" SELECT karyawan.nip, karyawan.nama_karyawan, jabatan.nama_jabatan, jabatan.gaji_pokok, jabatan.transport, jabatan.uang_makan, absen.alpha
+            FROM karyawan 
+            INNER JOIN absen ON absen.nip = karyawan.nip
+            INNER JOIN jabatan ON jabatan.nama_jabatan = karyawan.jabatan
+            ORDER BY karyawan.nama_karyawan ASC");
+        return $data->result_array(); // Mengembalikan hasil sebagai array
     }
 
     // Potongan Gaji
