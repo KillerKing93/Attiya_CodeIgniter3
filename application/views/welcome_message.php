@@ -201,7 +201,7 @@
   </section>
 
   <!-- Contact section -->
-  <section class="contact">
+  <section class="contact" id="contact"> <!-- Tambahkan ID 'contact' -->
     <h2>Contact Us</h2>
     <form>
       <input type="text" placeholder="Name" required>
@@ -210,6 +210,112 @@
       <button type="submit">Send</button>
     </form>
   </section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="<?php echo base_url()?>assets/backend/images/logo.png" alt="GajiQ" style="max-width: 200px;">
+          </a>
+        </div>
+      <div class="col-md-4">
+        <h4 class="footer-heading">Ikuti Kami</h4>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/attiyadf36_" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" style="width: 30px; height: auto;">
+          </a>
+          <a href="https://www.linkedin.com/in/akun_anda" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn" style="width: 30px; height: auto;">
+          </a>
+          <a href="https://github.com/AttiyaDiantiFadli" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" style="width: 30px; height: auto;">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p class="footer-copyright">&copy; 2024. Premium . <a href="https://www.instagram.com/attiyadf36_" target="_blank">Attiya template</a> from attiyadf36_. All rights reserved.</p>
+        <p class="footer-copyright">Hand-crafted & made with <i class="ti-heart text-danger"></i</p>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+
+  .footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: #ddd;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    transition: transform 0.3s;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+
+  .footer-copyright {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 767px) {
+    .footer-description {
+      margin-bottom: 30px;
+    }
+
+    .footer-heading {
+      margin-top: 30px;
+    }
+  }
+</style>
 
   <script>
     // Smooth scrolling
