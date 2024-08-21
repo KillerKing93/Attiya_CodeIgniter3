@@ -27,9 +27,16 @@ class Model extends CI_Model {
         return $data->result_array();
     }
 
-    function update_jabatan($id_jabatan, $data) {
-        $this->db->where('id_jabatan', $id_jabatan);
-        return $this->db->update('jabatan', $data);
+    // User
+    function user() {
+        $data = $this->db->get('user');
+        return $data->result_array();
+    }
+
+    function ubah_user($id_user) {
+        $this->db->where('id_user',$id_user);
+        $data = $this->db->get('user');
+        return $data->result_array();
     }
 
     // Absensi
@@ -42,11 +49,6 @@ class Model extends CI_Model {
         $this->db->where('id_absen',$id_absen);
         $data = $this->db->get('absen');
         return $data->result_array();
-    }
-
-    function update_absen($id_absen, $data) {
-        $this->db->where('id_absen', $id_absen);
-        return $this->db->update('absen', $data);
     }
 
     // Penggajian
@@ -72,9 +74,11 @@ class Model extends CI_Model {
         return $data->result_array();
     }
 
-    function update_potongan_gaji($id, $data) {
-        $this->db->where('id', $id);
-        return $this->db->update('potongan_gaji', $data);
+    // Login
+    function cek_login($username, $password)
+    {
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        return $this->db->get('user')->row();
     }
-
 }

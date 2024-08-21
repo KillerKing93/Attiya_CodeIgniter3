@@ -22,10 +22,9 @@ class User extends CI_Controller {
     }
     function tambah_proses(){
         $data = array(
-            'nama_user' =>$this->input->post('nama_user'),
-            'tingkat' =>$this->input->post('tingkat'),
-            'wali_user' =>$this->input->post('wali_user'),
-            'tahun_ajaran' =>$this->input->post('tahun_ajaran'),
+            'nama' =>$this->input->post('nama'),
+            'username' =>$this->input->post('username'),
+            'password' =>$this->input->post('password'),
 
         );
         $this->db->insert('user', $data);
@@ -36,18 +35,17 @@ class User extends CI_Controller {
     function ubah($id_user){
         $data = array(
              'title' => 'Ubah User',
-             'user'=> $this->model->user_ubah($id_user),
-             'isi' => 'view_karyawan_ubah',
+             'user'=> $this->model->ubah_user($id_user),
+             'isi' => 'view_user_ubah',
          );
         $this->load->view('layout', $data);
     }
 
     function ubah_proses(){
         $data = array(
-            'nama_user' =>$this->input->post('nama_user'),
-            'tingkat' =>$this->input->post('tingkat'),
-            'wali_user' =>$this->input->post('wali_user'),
-            'tahun_ajaran' =>$this->input->post('tahun_ajaran'),
+            'nama' =>$this->input->post('nama'),
+            'username' =>$this->input->post('username'),
+            'password' =>$this->input->post('password'),
         );
         $this->db->where('id_user',$this->input->post('id_user'));
         $this->db->update('user', $data);

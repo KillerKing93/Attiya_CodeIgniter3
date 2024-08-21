@@ -12,8 +12,8 @@ class Dasboard extends CI_Controller {
         $karyawan = $this->db->query("SELECT * FROM karyawan");
         $data['karyawan']=$karyawan->num_rows();
 
-        $admin = $this->db->query("SELECT * FROM karyawan WHERE jabatan = 'admin'");
-        $data['admin']=$admin->num_rows();
+        $user = $this->db->query("SELECT * FROM user");
+        $data['user']=$user->num_rows();
 
         $jabatan = $this->db->query("SELECT * FROM jabatan");
         $data['jabatan']=$jabatan->num_rows();

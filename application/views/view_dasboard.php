@@ -42,9 +42,9 @@
         <div class="col-md-6 mb-4 stretch-card transparent">
           <div class="card card-tale">
             <div class="card-body">
-              <p class="mb-4">Data Admin</p>
+              <p class="mb-4">Data User</p>
               <p class="fs-30 mb-2"></p>
-              <?php echo $admin ?>
+              <?php echo $user ?>
             </div>
           </div>
         </div>

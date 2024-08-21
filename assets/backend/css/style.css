@@ -25693,3 +25693,9 @@ table.dataTable tbody td.select-checkbox:after {
   }
 }
 /*# sourceMappingURL=maps/style.css.map */
+
+
+.logo-size {
+  width: 1500px; /* Ubah ukuran sesuai kebutuhan */
+  height: auto; /* Ini memastikan bahwa proporsi gambar tetap terjaga */
+}

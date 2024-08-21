@@ -22,7 +22,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="<?php echo base_url()?>assets/backend/css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="<?php echo base_url()?>assets/backend/images/favicon.png" />
+    <link rel="shortcut icon" href="<?php echo base_url()?>assets/backend/images/logo-mini.png" />
   </head>
   <body>
     <div class="container-scroller">
@@ -47,10 +47,14 @@
     </div>
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-          <a class="navbar-brand brand-logo me-5" href="index.html"><img src="<?php echo base_url()?>assets/backend/images/logo.svg" class="me-2" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="<?php echo base_url()?>assets/backend/images/logo-mini.svg" alt="logo" /></a>
-        </div>
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+        <a class="navbar-brand brand-logo me-5" href="index.html">
+            <img src="<?php echo base_url()?>assets/backend/images/logo.png" class="me-2" alt="logo" style="width: 130px; height: auto;" />
+        </a>
+        <a class="navbar-brand brand-logo-mini" href="index.html">
+            <img src="<?php echo base_url()?>assets/backend/images/logo-mini.png" alt="logo" style="width: 70px; height: auto;" />
+        </a>
+    </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="icon-menu"></span>
@@ -70,13 +74,13 @@
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                <img src="<?php echo base_url()?>assets/backend/images/faces/face28.jpg" alt="profile" />
+                <img src="<?php echo base_url()?>assets/backend/images/faces/face29.jpg" alt="profile" />
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                 <a class="dropdown-item">
                   <i class="ti-settings text-primary"></i> Settings </a>
-                <a class="dropdown-item">
-                  <i class="ti-power-off text-primary"></i> Logout </a>
+                <a class="dropdown-item"  href="<?=base_url()?>index.php/login/logout">
+                  <i class="ti-power-off text-primary"></i>Logout</a>
               </div>
             </li>
           </ul>

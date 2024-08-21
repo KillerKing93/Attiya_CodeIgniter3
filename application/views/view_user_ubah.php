@@ -1,35 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubah Kelas</title>
-</head>
-<body>
-    <h1>Ubah Kelas</h1>
-    <form action="<?php echo base_url('index.php/kelas/ubah_proses') ?>"
-    method="post">
-        <input name="id_kelas" type="hidden" value="<?php echo $kelas[0]['id_kelas']?>">
+<div class="row w-100" style="margin: 0;">
+    <div class="col-md-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title mb-0">Ubah User</p><br>
+                <form action="<?php echo base_url('index.php/user/ubah_proses') ?>" method="post">
+                    <input name="id_user" type="hidden" value="<?php echo $user[0]['id_user']?>">
 
-        <label>Nama Kelas</label>
-        <input name="nama_kelas" type="text" value="<?php echo $kelas[0]['nama_kelas']?>">
+                    <br>
 
-        <br><br>
-        <label>Tingkat</label>
-        <input name="tingkat" type="text" value="<?php echo $kelas[0]['tingkat']?>">
+                    <label>Nama User</label>
+                    <input class="form-control" name="nama" type="text" value="<?php echo $user[0]['nama']?>">
 
-        <br><br>
-        <label>Wali Kelas</label>
-        <input name="wali_kelas" type="text" value="<?php echo $kelas[0]['wali_kelas']?>">
+                    <br>
 
-        <br><br>
-        <label>Tahun Ajaran</label>
-        <input name="tahun_ajaran" type="text" value="<?php echo $kelas[0]['tahun_ajaran']?>">
+                    <label>Username</label>
+                    <input class="form-control" name="username" type="text" type="text" value="<?php echo $user[0]['username']?>">
 
-        <br><br>
+                    <br>
 
-        <a href="<?php echo base_url('index.php/kelas') ?>"><button>Kembali</</button></a>
-        <button type="submit" name="simpan">Simpan</button>
-</form>
-</body>
-</html>
+                    <label>Password</label>
+                    <input class="form-control" name="password" type="text" type="date" value="<?php echo $user[0]['password']?>">
+
+                    <br><br>
+                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                    <a href="<?php echo base_url('index.php/user') ?>"class="btn btn-primary">Kembali</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+<div class="d-sm-flex justify-content-center justify-content-sm-between">
+  <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Attiya template</a> from attiyadf36_. All rights reserved.</span>
+  <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ms-1"></i></span>
+</div>
+</footer>
